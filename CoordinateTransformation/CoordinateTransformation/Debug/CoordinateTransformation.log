@@ -1,0 +1,21 @@
+﻿Build started 2015/11/20 1:34:09.
+     1>Project "C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\CoordinateTransformation\CoordinateTransformation\CoordinateTransformation.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\opencv-2.4.10\build\include" /I"C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\inc" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\src\util.cpp
+         util.cpp
+     1>c:\users\x240\desktop\advancedproductioninformationprocessingtechnology\coordinatetransformation\src\util.cpp(196): warning C4715: 'resetOutputFile' : not all control paths return a value
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\CoordinateTransformation\Debug\CoordinateTransformation.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\Lib\x86" /LIBPATH:"C:\opencv-2.4.10\build\x86\vc12\lib" Kinect20.lib Kinect20.Face.lib Kinect20.Fusion.lib Kinect20.VisualGestureBuilder.lib opencv_core2410d.lib opencv_imgproc2410d.lib opencv_highgui2410d.lib opencv_ml2410d.lib opencv_video2410d.lib opencv_features2d2410d.lib opencv_calib3d2410d.lib opencv_objdetect2410d.lib opencv_contrib2410d.lib opencv_legacy2410d.lib opencv_flann2410d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\CoordinateTransformation\Debug\CoordinateTransformation.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\CoordinateTransformation\Debug\CoordinateTransformation.lib" /MACHINE:X86 Debug\base_vector.obj
+         Debug\kadai1A.obj
+         Debug\kadai1B.obj
+         Debug\kadai2A.obj
+         Debug\kadai2B.obj
+         Debug\main.obj
+         Debug\random_gen.obj
+         Debug\util.obj
+         CoordinateTransformation.vcxproj -> C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\CoordinateTransformation\Debug\CoordinateTransformation.exe
+     1>Done Building Project "C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\CoordinateTransformation\CoordinateTransformation\CoordinateTransformation.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.39
