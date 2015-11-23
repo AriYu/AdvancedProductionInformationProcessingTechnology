@@ -4,5 +4,6 @@
 #include "Bezier.h"
 
 int kadai3_1();
+int kadai3_2();
 
 #endif

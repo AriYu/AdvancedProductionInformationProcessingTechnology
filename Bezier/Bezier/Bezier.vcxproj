@@ -24,6 +24,7 @@
     <ClCompile Include="..\src\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\resource\bezier_curved_surface_control_points.csv" />
     <None Include="..\resource\bezier_curve_control_points.csv" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

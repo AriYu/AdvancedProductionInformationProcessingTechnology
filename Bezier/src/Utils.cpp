@@ -24,6 +24,30 @@ int read_2d_control_pointslist_from_file(char filename[], double control_pointsl
 	return 0;
 }
 
+int read_3d_control_pointslist_from_file(char filename[], double control_pointslist[BDIM + 1][BDIM+1][HDIM])
+{
+	FILE *fp;
+	int ret = 0;
+	double x, y, z = 0.0;
+	int index_u, index_v = 0;
+
+	fp = fopen(filename, "r");
+	if (fp == NULL)
+	{
+		printf("%sファイルが開けません．\n", filename);
+		return -1;
+	}
+	while ((ret = fscanf(fp, "%d\t%d\t%lf\t%lf\t%lf", &index_u, &index_v, &x, &y, &z)) != EOF)
+	{
+		control_pointslist[index_u][index_v][0] = x;
+		control_pointslist[index_u][index_v][1] = y;
+		control_pointslist[index_u][index_v][2] = z;
+		control_pointslist[index_u][index_v][3] = 0;
+	}
+	return 0;
+}
+
+
 int output_bezier_curve(FILE *fp, double q[HDIM])
 {
 	fprintf(fp, "%lf\t%lf\t%lf\t%lf\n", q[0], q[1], q[2], q[3]);
@@ -50,7 +74,7 @@ int ouputPltFile()
 	fprintf(outputfile, "set datafile separator \"\t\"\n");
 	fprintf(outputfile, "splot for [IDX=0:100] \"../output/bezier_result.csv\" index IDX using 1:2:3 pt 7 ps 2 lc rgb \"black\" ");
 	//fprintf(outputfile, ", \"coordinate_o.txt\" using 1:2:3 with lines lw 1.5 lc rgb \"black\" ");
-	fprintf(outputfile, ", for [IDX=0:100] \"../resource/bezier_curve_control_points.csv\" index IDX using 2:3:4 pt 7 ps 3 lc rgb \"red\" \n");
+	fprintf(outputfile, ", for [IDX=0:100] \"../resource/bezier_curved_surface_control_points.csv\" index IDX using 3:4:5 pt 7 ps 2 lc rgb \"red\" \n");
 	//fprintf(outputfile, ", for [IDX=0:100] \"../output/txt/coordinate_y.txt\" index IDX using 1:2:3 with lines lw 1.5 lc rgb \"green\"");
 	//fprintf(outputfile, ", for [IDX=0:100] \"../output/txt/coordinate_z.txt\" index IDX using 1:2:3 with lines lw 1.5 lc rgb \"blue\" \n");
 	fclose(outputfile);
@@ -62,4 +86,27 @@ int plot2gnuplot()
 	ouputPltFile();
 	system("wgnuplot -persist plot_bezier.plt");
 	return 0;
+}
+
+void printVec(double u[])
+{
+	//printf("[");
+	for (int i = 0; i < HDIM; i++)
+	{
+		printf("[ %2.1lf ]\n", u[i]);
+	}
+	//printf("]\n");
+}
+
+void printMat(double m[HDIM][HDIM])
+{
+	for (int i = 0; i < HDIM; i++){
+		printf("[");
+		for (int j = 0; j < HDIM; j++)
+		{
+			printf("\t%3.2lf", m[i][j]);
+		}
+		printf("]\n");
+	}
+	printf("\n");
 }

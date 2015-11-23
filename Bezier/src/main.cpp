@@ -2,6 +2,7 @@
 
 int main(void)
 {
-	kadai3_1();
+	//kadai3_1();
+	kadai3_2();
 	return 0;
 }

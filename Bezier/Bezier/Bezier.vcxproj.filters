@@ -49,5 +49,8 @@
     <None Include="..\resource\bezier_curve_control_points.csv">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="..\resource\bezier_curved_surface_control_points.csv">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
