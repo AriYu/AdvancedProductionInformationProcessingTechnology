@@ -34,10 +34,15 @@ void scaleVec4b(double u[], double k, double v[])
 
 void mulLCpVb(double u[HDIM], double cps[BDIM + 1][HDIM], double v[BDIM + 1])
 {
+	double cps_tmp[BDIM + 1][HDIM];
 	for (int i = 0; i < BDIM + 1; i++)
 	{
-		scaleVec4b(cps[i], v[i], cps[i]);
-		add4h(u, u, cps[i]);
+		printf("cps[%d] : %lf, %lf, %lf, %lf\n", i, cps[i][0], cps[i][1], cps[i][2], cps[i][3]);
+		printf("v[%d] : %lf\n", i, v[i]);
+		scaleVec4b(cps_tmp[i], v[i], cps[i]);
+		printf("cps_tmp[%d] : %lf, %lf, %lf, %lf\n", i, cps_tmp[i][0], cps_tmp[i][1], cps_tmp[i][2], cps_tmp[i][3]);
+		add4h(u, u, cps_tmp[i]);
+		printf("u : %lf, %lf, %lf, %lf\n\n", u[0], u[1], u[2], u[3]);
 	}
 }
 
@@ -45,6 +50,12 @@ void on_bezier3_curve(double q[HDIM], double mb[BDIM + 1][BDIM + 1], double cps[
 {
 	double tn[BDIM + 1];
 	double Mt[BDIM + 1];
+	// q‚Ì‰Šú‰»
+	for (int i = 0; i < HDIM; i++)
+	{
+		q[i] = 0.0;
+	}
+
 	// t^n ‚ÌŒvŽZ
 	set_param_vector(tn, t);
 
