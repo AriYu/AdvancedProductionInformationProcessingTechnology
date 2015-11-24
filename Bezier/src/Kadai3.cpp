@@ -53,7 +53,6 @@ int kadai3_2()
 	{
 		return -1;
 	}
-
 	char output_file[] = "../output/bezier_result.csv";
 	FILE *fp;
 	fp = fopen(output_file, "w");
@@ -63,12 +62,12 @@ int kadai3_2()
 		return -1;
 	}
 
-	for (double u = 0; u < 1.0; u += (1.0 / 20.0))
+	for (double u = 0; u <= 100; u += (1.0 / 20.0))
 	{
-		for (double v = 0; v < 1.0; v += (1.0 / 20.0))
+		for (double v = 0; v <= 100; v += (1.0 / 20.0))
 		{
 			on_bezier3_surface(q, M_B, control_pointslist, u, v);
-			printf("[%lf][%lf] : %lf, %lf, %lf, %lf\n", u, v, q[0], q[1], q[2], q[3]);
+			//printf("[%lf][%lf] : %lf, %lf, %lf, %lf\n", u, v, q[0], q[1], q[2], q[3]);
 			output_bezier_curve(fp, q);
 		}
 	}

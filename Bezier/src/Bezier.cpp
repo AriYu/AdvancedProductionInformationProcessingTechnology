@@ -83,10 +83,13 @@ void mulPMb(double mcp[BDIM + 1][BDIM + 1][HDIM], double p[BDIM + 1][BDIM + 1][H
 	{
 		for (int j = 0; j < BDIM + 1; j++)
 		{
-			for (int k = 0; k < HDIM - 1; k++)
+			double cps_tmp[HDIM];
+			for (int k = 0; k < BDIM + 1; k++)
 			{
-				mcp[i][j][k] += p[i][j][k] * Mb[j][i];
+				scaleVec4b(cps_tmp, Mb[k][j], p[i][k]);
+				add4h(mcp[i][j], mcp[i][j],cps_tmp);
 			}
+			
 		}
 	}
 }
@@ -158,8 +161,6 @@ void on_bezier3_surface(double q[HDIM], double mb[BDIM + 1][BDIM + 1], double cp
 		}
 	}
 	mulMCpVb(PMv, PMb, vn);
-	printf("PMv : \n");
-	printMat(PMv);
 
 	// uM = u^n * Mb^T
 	double uM[BDIM + 1];
