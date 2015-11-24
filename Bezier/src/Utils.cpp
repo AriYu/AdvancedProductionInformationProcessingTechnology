@@ -63,6 +63,7 @@ int ouputPltFile()
 		printf("cannnot open [plot_bezier.plt]\n");
 		return -1;
 	}
+	fprintf(outputfile, "reset\n");
 	fprintf(outputfile, "set view equal xyz\n");
 	fprintf(outputfile, "set xlabel \"X-Axis\"\n");
 	fprintf(outputfile, "set ylabel \"Y-Axis\"\n");
@@ -72,11 +73,11 @@ int ouputPltFile()
 	//fprintf(outputfile, "set zrange [0:5]\n");
 	fprintf(outputfile, "set ticslevel 0\n");
 	fprintf(outputfile, "set datafile separator \"\t\"\n");
-	fprintf(outputfile, "splot for [IDX=0:100] \"../output/bezier_result.csv\" index IDX using 1:2:3 pt 7 ps 2 lc rgb \"black\" ");
-	//fprintf(outputfile, ", \"coordinate_o.txt\" using 1:2:3 with lines lw 1.5 lc rgb \"black\" ");
-	fprintf(outputfile, ", for [IDX=0:100] \"../resource/bezier_curved_surface_control_points.csv\" index IDX using 3:4:5 pt 7 ps 2 lc rgb \"red\" \n");
-	//fprintf(outputfile, ", for [IDX=0:100] \"../output/txt/coordinate_y.txt\" index IDX using 1:2:3 with lines lw 1.5 lc rgb \"green\"");
-	//fprintf(outputfile, ", for [IDX=0:100] \"../output/txt/coordinate_z.txt\" index IDX using 1:2:3 with lines lw 1.5 lc rgb \"blue\" \n");
+	fprintf(outputfile, "set cbrange[-1.5:1.5]\n");
+	//fprintf(outputfile, "splot for [IDX=0:1000] \"../output/bezier_result.csv\" index IDX using 1:2:3 pt 7 ps 1 lc rgb \"black\" ");
+	fprintf(outputfile, "splot for [IDX=0:1000] \"../output/bezier_result.csv\" index IDX using 1:2:3 with lines palette");
+	//fprintf(outputfile, "\n");
+	//fprintf(outputfile, ", for [IDX=0:1000] \"../resource/bezier_curved_surface_control_points.csv\" index IDX using 3:4:5 pt 7 ps 2 lc rgb \"red\" \n");
 	fclose(outputfile);
 	return 0;
 }
@@ -84,7 +85,7 @@ int ouputPltFile()
 int plot2gnuplot()
 {
 	ouputPltFile();
-	system("wgnuplot -persist plot_bezier.plt");
+	system("gnuplot -persist plot_bezier.plt");
 	return 0;
 }
 
