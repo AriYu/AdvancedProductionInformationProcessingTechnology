@@ -33,7 +33,7 @@ int kadai3_1()
 		printf("q : [%lf] %lf, %lf, %lf, %lf\n",i, q[0], q[1], q[2], q[3]);
 		output_bezier_curve(fp, q);
 	}
-	plot2gnuplot();
+	plot2gnuplot(output_file);
 	return 0;
 }
 
@@ -53,35 +53,57 @@ int kadai3_2()
 	{
 		return -1;
 	}
-	char output_file[] = "../output/bezier_result.csv";
-	FILE *fp;
-	fp = fopen(output_file, "w");
-	if (fp == NULL)
+	char output_file_surface[] = "../output/bezier_surface.csv";
+	FILE *fp_surface;
+	fp_surface = fopen(output_file_surface, "w");
+	if (fp_surface == NULL)
 	{
-		printf("%sファイルが開けません．\n", output_file);
+		printf("%sファイルが開けません．\n", output_file_surface);
 		return -1;
 	}
-
+	char output_file_curve[] = "../output/bezier_curve.csv";
+	FILE *fp_curve;
+	fp_curve = fopen(output_file_curve, "w");
+	if (fp_curve == NULL)
+	{
+		printf("%sファイルが開けません．\n", output_file_curve);
+		return -1;
+	}
+	char output_file_curve_and_surface[] = "../output/bezier_curve_and_surface.csv";
+	FILE *fp_curve_and_surface;
+	fp_curve_and_surface = fopen(output_file_curve_and_surface, "w");
+	if (fp_curve_and_surface == NULL)
+	{
+		printf("%sファイルが開けません．\n", output_file_curve_and_surface);
+		return -1;
+	}
 	for (double u = 0; u <= 1.0 + 1.0/20.0; u += (1.0 / 20.0))
 	{
 		for (double v = 0; v <= 1.0 + 1.0/20.0; v += (1.0 / 20.0))
 		{
 			on_bezier3_surface(q, M_B, control_pointslist, u, v);
 			printf("[%lf][%lf] : %lf, %lf, %lf, %lf\n", u, v, q[0], q[1], q[2], q[3]);
-			output_bezier_curve(fp, q);
+			output_bezier_curve(fp_surface, q);
+			output_bezier_curve(fp_curve_and_surface, q);
 		}
-		fprintf(fp, "\n\n");
+		fprintf(fp_surface, "\n\n");
+		fprintf(fp_curve_and_surface, "\n\n");
 	}
-	for (double v = 0; v <= 1.0 + 1.0 / 20.0; v += (1.0 / 20.0))
+
+	for (int i = 0; i < 4; i++)
 	{
-		for (double u = 0; u <= 1.0 + 1.0 / 20.0; u += (1.0 / 20.0))
+		for (double j = 0; j < 1.0 + 1.0/20.0; j += (1.0 / 20.0))
 		{
-			on_bezier3_surface(q, M_B, control_pointslist, u, v);
-			printf("[%lf][%lf] : %lf, %lf, %lf, %lf\n", u, v, q[0], q[1], q[2], q[3]);
-			output_bezier_curve(fp, q);
+			on_bezier3_curve(q, M_B, control_pointslist[i], j);
+			printf("q : [%lf] %lf, %lf, %lf, %lf\n", j, q[0], q[1], q[2], q[3]);
+			output_bezier_curve(fp_curve, q);
+			output_bezier_curve(fp_curve_and_surface, q);
 		}
-		fprintf(fp, "\n\n");
+		fprintf(fp_curve, "\n\n");
+		fprintf(fp_curve_and_surface, "\n\n");
 	}
-	plot2gnuplot();
+	//plot2gnuplot(output_file_surface);
+	//plot2gnuplot(output_file_curve);
+	plot2gnuplot(output_file_curve_and_surface);
 	return 0;
 }

@@ -1,5 +1,6 @@
 #include "../include/Utils.h"
 #include <stdio.h>
+#include <string.h>
 
 int read_2d_control_pointslist_from_file(char filename[], double control_pointslist[BDIM + 1][HDIM])
 {
@@ -54,7 +55,7 @@ int output_bezier_curve(FILE *fp, double q[HDIM])
 	return 0;
 }
 
-int ouputPltFile()
+int ouputPltFile(char filename[])
 {
 	FILE *outputfile;
 	outputfile = fopen("plot_bezier.plt", "w");
@@ -68,24 +69,27 @@ int ouputPltFile()
 	fprintf(outputfile, "set xlabel \"X-Axis\"\n");
 	fprintf(outputfile, "set ylabel \"Y-Axis\"\n");
 	fprintf(outputfile, "set zlabel \"Z-Axis\"\n");
-	fprintf(outputfile, "set xrange [-5:5]\n");
-	fprintf(outputfile, "set yrange [-5:5]\n");
+	fprintf(outputfile, "set xrange [-1:10]\n");
+	fprintf(outputfile, "set yrange [-1:10]\n");
 	//fprintf(outputfile, "set zrange [0:5]\n");
 	fprintf(outputfile, "set ticslevel 0\n");
 	fprintf(outputfile, "set datafile separator \"\t\"\n");
 	fprintf(outputfile, "set cbrange[-1.5:1.5]\n");
 	//fprintf(outputfile, "splot for [IDX=0:1000] \"../output/bezier_result.csv\" index IDX using 1:2:3 pt 7 ps 1 lc rgb \"black\" ");
-	fprintf(outputfile, "splot for [IDX=0:1000] \"../output/bezier_result.csv\" index IDX using 1:2:3 with lines palette");
+	//fprintf(outputfile, "splot for [IDX=0:1000] \"%s\" index IDX using 1:2:3 with lines palette", filename);
+	fprintf(outputfile, "splot for [IDX=0:1000] \"%s\" index IDX using 1:2:3 with lines lc rgb \"black\" ,", "../output/bezier_curve.csv");
+	fprintf(outputfile, "for [IDX=0:1000] \"%s\" index IDX using 1:2:3 with lines lc rgb \"red\"", "../output/bezier_surface.csv");
 	//fprintf(outputfile, "\n");
 	//fprintf(outputfile, ", for [IDX=0:1000] \"../resource/bezier_curved_surface_control_points.csv\" index IDX using 3:4:5 pt 7 ps 2 lc rgb \"red\" \n");
 	fclose(outputfile);
 	return 0;
 }
 
-int plot2gnuplot()
+int plot2gnuplot(char filename[])
 {
-	ouputPltFile();
-	system("gnuplot -persist plot_bezier.plt");
+	ouputPltFile(filename);
+	char command[100] = "gnuplot -persist plot_bezier.plt";
+	system(command);
 	return 0;
 }
 
