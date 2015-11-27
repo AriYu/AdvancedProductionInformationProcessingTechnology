@@ -355,7 +355,7 @@ void kadai2B_3()
 
 void kadai2B_run()
 {
-	//kadai2B_1();
-	//kadai2B_2();
+	kadai2B_1();
+	kadai2B_2();
 	kadai2B_3();
 }

@@ -12,9 +12,9 @@ int main(void)
 	renew_seed();
 
 	//kadai1A_run();
-	kadai1B_run();
-	kadai2A_run();
-	//kadai2B_run();
+	//kadai1B_run();
+	//kadai2A_run();
+	kadai2B_run();
 
 	return 0;
 }

@@ -228,7 +228,7 @@ void kadai2A_2()
 	{
 		printf("cannot open [random.stl]\n");
 	}
-	prStlTetra2file(tetra_pos, "Tetra01", outputfile);
+	//prStlTetra2file(tetra_pos, "Tetra01", outputfile);
 	prStlTetra2file(transed_tetra_pos, "Tetra01_transed", outputfile);
 	prStlTriprism2file(transed_triprism_pos, "Triprism01_transed", outputfile);
 	fclose(outputfile);
