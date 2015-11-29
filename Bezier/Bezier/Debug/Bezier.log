@@ -1,4 +1,4 @@
-﻿Build started 2015/11/26 21:37:54.
+﻿Build started 2015/11/30 1:55:42.
      1>Project "C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\Bezier\Bezier\Bezier.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\opencv-2.4.10\build\include" /I"C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\inc" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\src\Utils.cpp
@@ -14,4 +14,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.50
+Time Elapsed 00:00:00.45

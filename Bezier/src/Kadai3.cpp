@@ -27,7 +27,7 @@ int kadai3_1()
 		return -1;
 	}
 
-	for (double i = 0; i < 1.0; i += (1.0 / 20.0))
+	for (double i = 0; i < 1.0 + (1.0 / 20.0); i += (1.0 / 20.0))
 	{
 		on_bezier3_curve(q, M_B, control_pointslist, i);
 		printf("q : [%lf] %lf, %lf, %lf, %lf\n",i, q[0], q[1], q[2], q[3]);

@@ -26,6 +26,7 @@
   <ItemGroup>
     <None Include="..\resource\bezier_curved_surface_control_points.csv" />
     <None Include="..\resource\bezier_curve_control_points.csv" />
+    <None Include="plot_bezier.plt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4EFC80CE-4212-4EE3-8B2A-29C24C2D7F07}</ProjectGuid>
