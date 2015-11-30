@@ -188,10 +188,12 @@ void kadai1B_2_random_coordinate()
 // 3.矢印図形の頂点位置を，座標系O1X1Y1Z1における頂点座標値として求める方法とその結果を示せ。
 void kadai1B_3_arrow_pos_as_random_coordinate()
 {
+	printf("kadai1B_3_arrow_pos_as_random_coordinate()\n");
 	resetOutputFile();
 
 	double arrow[ARROW_VERTEX][VECTOR_LEN];
 	double arrow_from_O1[ARROW_VERTEX][VECTOR_LEN];
+	double arrow_from_O1_tmp[ARROW_VERTEX][VECTOR_LEN];
 	set_arrow(arrow);
 
 	double origin[VECTOR_LEN];
@@ -211,19 +213,21 @@ void kadai1B_3_arrow_pos_as_random_coordinate()
 	output_as_coordinate(randomized_origin, randomized_vec_0, randomized_vec_1, randomized_vec_2);
 	output_as_coordinate(origin, vec_0, vec_1, vec_2);
 
-	// 上で求めたベクトルを使って変換行列を作る
-	double trans_mat[VECTOR_LEN][VECTOR_LEN];
-	setMatCol4h(trans_mat, randomized_vec_0, randomized_vec_1, randomized_vec_2, randomized_origin);
-
-	// O1座標系から見た矢印の座標をO0座標にプロットするので逆行列を求める
-	double inv_trans_mat[VECTOR_LEN][VECTOR_LEN];
-	invMat4h(inv_trans_mat, trans_mat);
-
-	// 変換行列を矢印座標にかけることによってO1X1Y1Z1座標系からみた矢印座標を求める
+	// 原点を移動して内積を計算
 	for (int i = 0; i < ARROW_VERTEX; i++)
 	{
-		mulMV4h(arrow_from_O1[i], inv_trans_mat, arrow[i]);
+		for (int j = 0; j < VECTOR_LEN - 1; j++)
+		{
+			arrow_from_O1_tmp[i][j] = arrow[i][j] - randomized_origin[j];
+		}
+		arrow_from_O1[i][0] = dot4h(arrow_from_O1_tmp[i], randomized_vec_0);
+		arrow_from_O1[i][1] = dot4h(arrow_from_O1_tmp[i], randomized_vec_1);
+		arrow_from_O1[i][2] = dot4h(arrow_from_O1_tmp[i], randomized_vec_2);
+		arrow_from_O1[i][3] = 1;
+		printVec(arrow_from_O1[i]);
+		printf("\n");
 	}
+
 	// 座標の書き出し
 	output_as_arrow(arrow);
 	output_as_arrow(arrow_from_O1);
@@ -234,6 +238,7 @@ void kadai1B_3_arrow_pos_as_random_coordinate()
 // 4.座標系O1X1Y1Z1を基準座標系O0X0Y0Z0に一致させる．座標変換式の求め方を示し，実際に変換した結果を示せ．
 void kadai1B_4_align()
 {
+	printf("kadai1B_4_align()\n");
 	resetOutputFile();
 
 	double origin[VECTOR_LEN];
@@ -280,10 +285,13 @@ void kadai1B_4_align()
 // 5. 4で求めた変換式を用いて矢印図形の頂点を移動した結果が，3で求めた頂点座標値と一致することを確認せよ．
 void kadai1B_5_correspond()
 {
+	printf("kadai1B_5_correspond()\n");
 	resetOutputFile();
 
 	double arrow[ARROW_VERTEX][VECTOR_LEN];
-	double arrow_from_O1[ARROW_VERTEX][VECTOR_LEN];
+	double arrow_from_O1_tmp[ARROW_VERTEX][VECTOR_LEN];
+	double arrow_from_O1_dot[ARROW_VERTEX][VECTOR_LEN];
+	double arrow_from_O1_inverse[ARROW_VERTEX][VECTOR_LEN];
 	set_arrow(arrow);
 
 	double origin[VECTOR_LEN];
@@ -303,25 +311,49 @@ void kadai1B_5_correspond()
 	output_as_coordinate(randomized_origin, randomized_vec_0, randomized_vec_1, randomized_vec_2);
 	output_as_coordinate(origin, vec_0, vec_1, vec_2);
 
+	// 内積を使って計算する
+	for (int i = 0; i < ARROW_VERTEX; i++)
+	{
+		for (int j = 0; j < VECTOR_LEN - 1; j++)
+		{
+			arrow_from_O1_tmp[i][j] = arrow[i][j] - randomized_origin[j];
+		}
+		arrow_from_O1_dot[i][0] = dot4h(arrow_from_O1_tmp[i], randomized_vec_0);
+		arrow_from_O1_dot[i][1] = dot4h(arrow_from_O1_tmp[i], randomized_vec_1);
+		arrow_from_O1_dot[i][2] = dot4h(arrow_from_O1_tmp[i], randomized_vec_2);
+		arrow_from_O1_dot[i][3] = 1;
+		printf("\n");
+	}
+
+	// 逆行列を用いて計算する
 	// 上で求めたベクトルを使って変換行列を作る
 	double trans_mat[VECTOR_LEN][VECTOR_LEN];
 	setMatCol4h(trans_mat, randomized_vec_0, randomized_vec_1, randomized_vec_2, randomized_origin);
-
 	// O1座標系から見た矢印の座標をO0座標にプロットするので逆行列を求める
 	double inv_trans_mat[VECTOR_LEN][VECTOR_LEN];
 	invMat4h(inv_trans_mat, trans_mat);
-
 	// 変換行列を矢印座標にかけることによってO1X1Y1Z1座標系からみた矢印座標を求める
 	for (int i = 0; i < ARROW_VERTEX; i++)
 	{
-		mulMV4h(arrow_from_O1[i], inv_trans_mat, arrow[i]);
+		mulMV4h(arrow_from_O1_inverse[i], inv_trans_mat, arrow[i]);
 	}
+
+	// 値を比較する
+	for (int i = 0; i < ARROW_VERTEX; i++)
+	{
+		printf("dot : \n");
+		printVec(arrow_from_O1_dot[i]);
+		printf("inverse : \n");
+		printVec(arrow_from_O1_inverse[i]);
+		printf("\n");
+	}
+
 	// 座標の書き出し
 	output_as_arrow(arrow);
-	output_as_arrow(arrow_from_O1);
+	output_as_arrow(arrow_from_O1_inverse);
+	output_as_arrow(arrow_from_O1_dot);
 	//gnuplotにプロット
 	plot2gnuplot();
-
 }
 
 int kadai1B_run()
