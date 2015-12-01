@@ -161,7 +161,8 @@ void on_bezier3_surface(double q[HDIM], double mb[BDIM + 1][BDIM + 1], double cp
 		}
 	}
 	mulMCpVb(PMv, PMb, vn);
-
+	printf("PMv:\n");
+	printMat(PMv);
 	// uM = u^n * Mb^T
 	double uM[BDIM + 1];
 	// tmb = Mb^T
@@ -170,7 +171,8 @@ void on_bezier3_surface(double q[HDIM], double mb[BDIM + 1][BDIM + 1], double cp
 	transposition4b(tmb, mb);
 	// uM = u^n * Mb^T ‚ðŒvŽZ
 	mulVMb(uM, tmb, un);
-
+	printf("uM : \n");
+	printVec(uM);
 	for (int i = 0; i < BDIM + 1; i++)
 	{
 		for (int j = 0; j < HDIM - 1; j++)

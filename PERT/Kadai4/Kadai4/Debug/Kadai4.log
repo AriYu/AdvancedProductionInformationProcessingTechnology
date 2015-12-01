@@ -1,0 +1,19 @@
+﻿Build started 2015/11/30 22:45:20.
+     1>Project "C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\PERT\Kadai4\Kadai4\Kadai4.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\PERT\Kadai4\Debug\Kadai4.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\Lib\x86" /LIBPATH:"C:\opencv-2.4.10\build\x86\vc12\lib" Kinect20.lib Kinect20.Face.lib Kinect20.Fusion.lib Kinect20.VisualGestureBuilder.lib opencv_core2410d.lib opencv_imgproc2410d.lib opencv_highgui2410d.lib opencv_ml2410d.lib opencv_video2410d.lib opencv_features2d2410d.lib opencv_calib3d2410d.lib opencv_objdetect2410d.lib opencv_contrib2410d.lib opencv_legacy2410d.lib opencv_flann2410d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\PERT\Kadai4\Debug\Kadai4.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\PERT\Kadai4\Debug\Kadai4.lib" /MACHINE:X86 Debug\main.obj
+         ..\lib\array_graph2015.lib
+     1>main.obj : error LNK2019: unresolved external symbol "void __cdecl read_data(int * * const,char *)" (?read_data@@YAXQAPAHPAD@Z) referenced in function _main
+     1>main.obj : error LNK2019: unresolved external symbol "void __cdecl init_graph(int * * const,int (* const)[6],int (* const)[3],int (* const)[3])" (?init_graph@@YAXQAPAHQAY05HQAY02H2@Z) referenced in function _main
+     1>main.obj : error LNK2019: unresolved external symbol "void __cdecl pr_edge_all(int * * const)" (?pr_edge_all@@YAXQAPAH@Z) referenced in function _main
+     1>main.obj : error LNK2019: unresolved external symbol "void __cdecl first_v1(int * * const,int,int *,int *)" (?first_v1@@YAXQAPAHHPAH1@Z) referenced in function _main
+     1>main.obj : error LNK2019: unresolved external symbol "void __cdecl first_v2(int * * const,int,int *,int *)" (?first_v2@@YAXQAPAHHPAH1@Z) referenced in function _main
+     1>main.obj : error LNK2019: unresolved external symbol "void __cdecl next_v1(int * * const,int,int *,int *)" (?next_v1@@YAXQAPAHHPAH1@Z) referenced in function _main
+     1>main.obj : error LNK2019: unresolved external symbol "void __cdecl next_v2(int * * const,int,int *,int *)" (?next_v2@@YAXQAPAHHPAH1@Z) referenced in function _main
+     1>main.obj : error LNK2019: unresolved external symbol "void __cdecl pr_vertex_all(int * * const)" (?pr_vertex_all@@YAXQAPAH@Z) referenced in function _main
+     1>C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\PERT\Kadai4\Debug\Kadai4.exe : fatal error LNK1120: 8 unresolved externals
+     1>Done Building Project "C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\PERT\Kadai4\Kadai4\Kadai4.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.23
