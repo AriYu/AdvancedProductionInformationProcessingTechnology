@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#pragma comment(lib, "../lib/array_graph2015.lib")
 #include "../include/array_graph.h"
 
 void main(void)
