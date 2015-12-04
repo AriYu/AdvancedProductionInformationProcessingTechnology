@@ -28,19 +28,5 @@ void main(void)
 
 	printf("クリティカルパス\n");
 	trace_critical_path(g, es, vs, num_of_vertex);
-	/*vid = 3;
-	printf("V%d接続辺の列挙例\n", vid);
-	printf("> [v1側頂点]\n");
-	first_v1(g, vid, &v1, &eid);
-	while (v1 != ARYGRAPH_NULL) {
-		printf("> 頂点：V%d -> 接続辺：E%d -> v1側頂点番号：%d\n", vid, eid, v1);
-		next_v1(g, vid, &v1, &eid);
-	}
-	printf("> [v2側頂点]\n");
-	first_v2(g, vid, &v2, &eid);
-	while (v2 != ARYGRAPH_NULL) {
-		printf("> 頂点：V%d -> 接続辺：E%d -> v2側頂点番号：%d\n", vid, eid, v2);
-		next_v2(g, vid, &v2, &eid);
-	}*/
 
 }
