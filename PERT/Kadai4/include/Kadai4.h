@@ -6,6 +6,6 @@ int calc_earliest_node_times(int *g[GRAPH_ITEM_NUM], int es[][EDGE_PROPERTY], in
 
 int calc_latest_node_times(int *g[GRAPH_ITEM_NUM], int es[][EDGE_PROPERTY], int vs[][VERTEX_PROPERTY], int vmax);
 
-int trace_critical_path();
+int trace_critical_path(int *g[GRAPH_ITEM_NUM], int es[][EDGE_PROPERTY], int vs[][VERTEX_PROPERTY], int vmax);
 
 #endif
