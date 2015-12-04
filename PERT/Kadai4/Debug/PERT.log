@@ -1,4 +1,4 @@
-﻿Build started 2015/12/04 20:53:06.
+﻿Build started 2015/12/04 21:59:44.
      1>Project "C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\PERT\Kadai4\PERT.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\opencv-2.4.10\build\include" /I"C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\inc" /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt src\Kadai4.c

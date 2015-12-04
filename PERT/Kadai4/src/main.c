@@ -25,7 +25,6 @@ void main(void)
 	printf("最遅結合点時刻\n");
 	calc_latest_node_times(g, es, vs, 5);
 
-
 	/*vid = 3;
 	printf("V%d接続辺の列挙例\n", vid);
 	printf("> [v1側頂点]\n");
@@ -39,6 +38,6 @@ void main(void)
 	while (v2 != ARYGRAPH_NULL) {
 		printf("> 頂点：V%d -> 接続辺：E%d -> v2側頂点番号：%d\n", vid, eid, v2);
 		next_v2(g, vid, &v2, &eid);
-	}
-*/
+	}*/
+
 }

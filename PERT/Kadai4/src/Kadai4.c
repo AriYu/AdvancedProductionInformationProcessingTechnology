@@ -57,8 +57,9 @@ int calc_latest_node_times(int *g[GRAPH_ITEM_NUM], int es[][EDGE_PROPERTY], int 
 	int vid = 0;
 
 	// èâä˙âª
-	vs[0][5] = 0;
-	for (vid = 1; vid < vmax + 1; vid++)
+	vs[vmax][5] = vs[vmax][4];
+	//printf("vs[%d] : %d\n", vmax, vs[vmax][5]);
+	for (vid = vmax; vid > 0; vid--)
 	{
 		vs[vid][5] = calc_local_latest_times(g, es, vs, vid);
 		printf("vs[%d] : %d\n", vid, vs[vid][5]);
@@ -68,25 +69,28 @@ int calc_latest_node_times(int *g[GRAPH_ITEM_NUM], int es[][EDGE_PROPERTY], int 
 
 int calc_local_latest_times(int *g[GRAPH_ITEM_NUM], int es[][EDGE_PROPERTY], int vs[][VERTEX_PROPERTY], int vid)
 {
-	int v1 = 0;
+	int v2 = 0;
 	int eid = 0;
-	int min = 0;
+	int min = vs[vid][5];
 	int tmp = 0;
-
-	first_v1(g, vid, &v1, &eid);
-	while (v1 != ARYGRAPH_NULL) {
-		if (v1 == vid)
+	first_v2(g, vid, &v2, &eid);
+	while (v2 != ARYGRAPH_NULL) {
+		if (v2 == vid)
 		{
-			next_v1(g, vid, &v1, &eid);
+			next_v2(g, vid, &v2, &eid);
 		}
 		else
 		{
-			tmp = vs[v1][4] + get_label_edge(es[eid]);
+			if (min < 0)
+			{
+				min = vs[v2][5];
+			}
+			tmp = vs[v2][5] - get_label_edge(es[eid]);
 			if (tmp < min)
 			{
 				min = tmp;
 			}
-			next_v1(g, vid, &v1, &eid);
+			next_v2(g, vid, &v2, &eid);
 		}
 	}
 	return min;
