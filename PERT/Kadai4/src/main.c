@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../include/array_graph.h"
+#include "../include/Kadai4.h"
 
 void main(void)
 {
@@ -18,7 +19,14 @@ void main(void)
 	printf("Vertex Data\n");
 	pr_vertex_all(g);
 
-	vid = 2;
+	printf("最早結合点時刻\n");
+	calc_earliest_node_times(g, es, vs, 5);
+
+	printf("最遅結合点時刻\n");
+	calc_latest_node_times(g, es, vs, 5);
+
+
+	/*vid = 3;
 	printf("V%d接続辺の列挙例\n", vid);
 	printf("> [v1側頂点]\n");
 	first_v1(g, vid, &v1, &eid);
@@ -32,5 +40,5 @@ void main(void)
 		printf("> 頂点：V%d -> 接続辺：E%d -> v2側頂点番号：%d\n", vid, eid, v2);
 		next_v2(g, vid, &v2, &eid);
 	}
-
+*/
 }

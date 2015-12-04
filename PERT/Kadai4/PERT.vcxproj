@@ -11,10 +11,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Kadai4.c" />
     <ClCompile Include="src\main.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\array_graph.h" />
+    <ClInclude Include="include\Kadai4.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\array_graph2015.lib" />
