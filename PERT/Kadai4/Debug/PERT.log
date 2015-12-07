@@ -1,12 +1,8 @@
-﻿Build started 2015/12/05 1:22:01.
+﻿Build started 2015/12/07 23:18:03.
      1>Project "C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\PERT\Kadai4\PERT.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\opencv-2.4.10\build\include" /I"C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\inc" /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt src\main.c
-         main.c
-     1>src\main.c(14): warning C4101: 'vid' : unreferenced local variable
-     1>src\main.c(14): warning C4101: 'v1' : unreferenced local variable
-     1>src\main.c(14): warning C4101: 'v2' : unreferenced local variable
-     1>src\main.c(14): warning C4101: 'eid' : unreferenced local variable
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\opencv-2.4.10\build\include" /I"C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\inc" /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt src\Kadai4.c
+         Kadai4.c
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\PERT\Kadai4\Debug\PERT.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\Lib\x86" /LIBPATH:"C:\opencv-2.4.10\build\x86\vc12\lib" Kinect20.lib Kinect20.Face.lib Kinect20.Fusion.lib Kinect20.VisualGestureBuilder.lib opencv_core2410d.lib opencv_imgproc2410d.lib opencv_highgui2410d.lib opencv_ml2410d.lib opencv_video2410d.lib opencv_features2d2410d.lib opencv_calib3d2410d.lib opencv_objdetect2410d.lib opencv_contrib2410d.lib opencv_legacy2410d.lib opencv_flann2410d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\PERT\Kadai4\Debug\PERT.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\X240\Desktop\AdvancedProductionInformationProcessingTechnology\PERT\Kadai4\Debug\PERT.lib" /MACHINE:X86 Debug\Kadai4.obj
          Debug\main.obj
@@ -16,4 +12,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.20
+Time Elapsed 00:00:01.58
